@@ -1,5 +1,5 @@
 const DayOfTheWeek = ({ currentDayofTheweek }) => {
-  return <div>{currentDayofTheweek}hhhhhhh</div>;
+  return <div>{currentDayofTheweek}</div>;
 };
 
 export default DayOfTheWeek;

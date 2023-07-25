@@ -11,6 +11,11 @@ const WorldClock = () => {
   const [dayOfTheYear, setdayOfTheYear] = useState();
   const [dayOfTheWeek, setdayOfTheWeek] = useState();
   const [weekNumber, setWeekNumber] = useState();
+  const [visible, setVisible] = useState(false);
+
+  const toggleVisibility = () => {
+    setVisible(!visible);
+  };
 
   useEffect(() => {
     const fetchWorldClock = async () => {
@@ -47,29 +52,38 @@ const WorldClock = () => {
     return `${offset}`;
   };
 
+  const visibleClass = visible ? "pt-0" : "pt-[14rem] md:pt-96 lg:pt-[233px]";
   return (
-    <div className="text-white pl-[2rem] pt-[14rem] w-full flex flex-col md:pl-[4rem] md:pt-96 lg:pt-[233px]">
-      <Greeting />
-      <div className="flex flex-col md:pt-6">
-        <div className="flex">
-          <div className="font-primaryFont text-[100px] font-bold leading-[100px] md:text-[175px]">
-            {currentTime}
+    <div>
+      <div
+        className={
+          "text-white transition-all pl-[2rem] w-full flex flex-col md:pl-[4rem]  " +
+          visibleClass
+        }
+      >
+        <Greeting />
+        <div className="flex flex-col md:pt-6">
+          <div className="flex">
+            <div className="font-primaryFont text-[100px] font-bold leading-[100px] md:text-[175px]">
+              {currentTime}
+            </div>
+            <div className="self-end font-primaryFont font-light text-[15px] leading-[28px] uppercase pb-[10px] md:text-[36px] md:p-0">
+              <TimeZone currentTimeZone={currentTimeZone} />
+            </div>
           </div>
-          <div className="self-end font-primaryFont font-light text-[15px] leading-[28px] uppercase pb-[10px] md:text-[36px] md:p-0">
-            <TimeZone currentTimeZone={currentTimeZone} />
+          <div className="lg:flex">
+            <Location />
+            <DropDownButton
+              visible={visible}
+              onClick={toggleVisibility}
+              currentDayofTheYear={dayOfTheYear}
+              currentDayofTheweek={dayOfTheWeek}
+              currentNumberofWeek={weekNumber}
+            />
           </div>
-        </div>
-        <div className="lg:flex">
-          <Location />
-          <DropDownButton
-            currentDayofTheYear={dayOfTheYear}
-            currentDayofTheweek={dayOfTheWeek}
-            currentNumberofWeek={weekNumber}
-          />
         </div>
       </div>
-
-      <MoreDetails />
+      <MoreDetails show={visible} />
     </div>
   );
 };

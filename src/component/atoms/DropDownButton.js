@@ -1,22 +1,12 @@
 import React, { useState } from "react";
 import MoreDetails from "../../organism/MoreDetails";
 
-const DropDownButton = ({
-  currentDayofTheYear,
-  currentDayofTheweek,
-  currentNumberofWeek,
-}) => {
-  const [visible, setVisible] = useState(false);
-
-  const toggleVisibility = () => {
-    setVisible(!visible);
-  };
-
+const DropDownButton = ({ visible, onClick }) => {
   return (
     <div className="bg-white rounded-[28px] mt-9  h-[2.5rem] w-24 lg:mb-12 lg:ml-[727px]">
-      <button onClick={toggleVisibility} className="pl-1 pt-1 flex flex-row">
+      <button onClick={onClick} className="pl-1 pt-1 flex flex-row">
         <p className="font-primaryFont text-[16px] font-bold leading-[28px] uppercase text-[#000] pl-2  self-center">
-          {visible ? "more" : "less"}
+          {visible ? "less" : "more"}
         </p>
         <div className="px-2">
           <svg

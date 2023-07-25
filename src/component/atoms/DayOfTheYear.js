@@ -1,5 +1,5 @@
 const DayOfTheYear = ({ currentDayofTheYear }) => {
-  return <div>{currentDayofTheYear}ddddd</div>;
+  return <div>{currentDayofTheYear}</div>;
 };
 
 export default DayOfTheYear
