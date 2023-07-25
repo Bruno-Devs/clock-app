@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import MoreDetails from "../../organism/MoreDetails";
 
 const DropDownButton = ({
   currentDayofTheYear,
@@ -30,7 +31,6 @@ const DropDownButton = ({
           </svg>
         </div>
       </button>
-      {}
     </div>
   );
 };

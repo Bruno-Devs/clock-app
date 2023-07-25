@@ -3,6 +3,7 @@ import Greeting from "../atoms/Greeting";
 import Location from "../atoms/Location";
 import DropDownButton from "../atoms/DropDownButton";
 import TimeZone from "../atoms/TimeZone";
+import MoreDetails from "../../organism/MoreDetails";
 
 const WorldClock = () => {
   const [currentTimeZone, setCurrentTimeZone] = useState();
@@ -16,10 +17,10 @@ const WorldClock = () => {
       try {
         const res = await fetch("http://worldtimeapi.org/api/ip");
         const data = await res.json();
-         setCurrentTimeZone(shortTimeZone(data.timezone));
+        setCurrentTimeZone(shortTimeZone(data.timezone));
         setdayOfTheYear(data.day_of_year);
         setdayOfTheWeek(data.day_of_week + 1);
-        setWeekNumber(data.week_number)
+        setWeekNumber(data.week_number);
       } catch (error) {
         console.error("Error fetching world clock data:", error);
       }
@@ -30,8 +31,8 @@ const WorldClock = () => {
       let time = new Date().toLocaleTimeString([], {
         hour: "2-digit",
         minute: "2-digit",
-        hour12: false
-      }); 
+        hour12: false,
+      });
       setCurrentTime(time);
     };
 
@@ -39,12 +40,12 @@ const WorldClock = () => {
     return () => clearInterval(interval);
   }, []);
 
-   const shortTimeZone = (timezone) => {
-     const offset = new Date()
-       .toLocaleTimeString("en", { timeZone: timezone, timeZoneName: "short" })
-       .split(" ")[2];
-     return `${offset}`;
-   };
+  const shortTimeZone = (timezone) => {
+    const offset = new Date()
+      .toLocaleTimeString("en", { timeZone: timezone, timeZoneName: "short" })
+      .split(" ")[2];
+    return `${offset}`;
+  };
 
   return (
     <div className="text-white pl-[2rem] pt-[14rem] w-full flex flex-col md:pl-[4rem] md:pt-96 lg:pt-[233px]">
@@ -60,9 +61,15 @@ const WorldClock = () => {
         </div>
         <div className="lg:flex">
           <Location />
-          <DropDownButton currentDayofTheYear={dayOfTheYear} currentDayofTheweek={dayOfTheWeek} currentNumberofWeek={weekNumber} />
+          <DropDownButton
+            currentDayofTheYear={dayOfTheYear}
+            currentDayofTheweek={dayOfTheWeek}
+            currentNumberofWeek={weekNumber}
+          />
         </div>
       </div>
+
+      <MoreDetails />
     </div>
   );
 };
