@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import Quotes from "./component/layout/Quotes";
+import WorldClock from "./component/layout/WorldClock";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-body bg-center bg-cover h-screen w-screen fixed">
+      <div className="bg-[rgba(0,0,0,0.33)]  h-screen w-screen ">
+        <Quotes />
+        <div className=" w-full">
+          <div>
+            <WorldClock />
+          </div>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
