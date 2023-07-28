@@ -3,7 +3,7 @@ import Greeting from "../atoms/Greeting";
 import Location from "../atoms/Location";
 import DropDownButton from "../atoms/DropDownButton";
 import TimeZone from "../atoms/TimeZone";
-import MoreDetails from "../../organism/MoreDetails";
+import MoreDetails from "../organism/MoreDetails";
 
 const WorldClock = () => {
   const [currentTimeZone, setCurrentTimeZone] = useState();
@@ -83,7 +83,7 @@ const WorldClock = () => {
           </div>
         </div>
       </div>
-      <MoreDetails show={visible} />
+      <MoreDetails show={visible} currentTimeZone={currentTimeZone} />
     </div>
   );
 };

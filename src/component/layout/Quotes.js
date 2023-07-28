@@ -1,4 +1,4 @@
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect} from "react";
 import Quote from "../atoms/Quote";
 import Author from "../atoms/Author";
 import RefreshButton from "../atoms/RefreshButton";
@@ -17,7 +17,7 @@ const Quotes = () => {
     getQuotes();
   }, []);
   return (
-    <Fragment>
+    <div>
       <div className="text-white pl-[2rem] pt-[80px] w-[20rem] flex flex-row md:w-[33.7rem] md:pl-[4rem]">
         <div className=" flex flex-col flex-wrap">
           <Quote quote={quote} />
@@ -27,7 +27,7 @@ const Quotes = () => {
           <RefreshButton />
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 };
 

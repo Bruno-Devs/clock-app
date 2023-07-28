@@ -1,5 +1,9 @@
-const DayOfTheYear = ({ currentDayofTheYear }) => {
-  return <div>{currentDayofTheYear}</div>;
+const DayOfTheYear = () => {
+  return (
+    <div >
+      <span>295</span>
+    </div>
+  );
 };
 
-export default DayOfTheYear
+export default DayOfTheYear;

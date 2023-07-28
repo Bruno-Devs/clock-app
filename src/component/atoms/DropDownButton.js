@@ -1,14 +1,11 @@
-import React, { useState } from "react";
-import MoreDetails from "../../organism/MoreDetails";
-
 const DropDownButton = ({ visible, onClick }) => {
   return (
-    <div className="bg-white rounded-[28px] mt-9  h-[2.5rem] w-24 lg:mb-12 lg:ml-[727px]">
-      <button onClick={onClick} className="pl-1 pt-1 flex flex-row">
+    <div className="bg-white rounded-[28px] mt-9  h-[2.3rem] w-28 lg:mb-12 lg:ml-[727px]">
+      <button onClick={onClick} className="pl-1 pt-1 flex justify-between">
         <p className="font-primaryFont text-[16px] font-bold leading-[28px] uppercase text-[#000] pl-2  self-center">
           {visible ? "less" : "more"}
         </p>
-        <div className="px-2">
+        <div className="px-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="30"

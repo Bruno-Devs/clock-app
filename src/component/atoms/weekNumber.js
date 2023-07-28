@@ -1,5 +1,11 @@
-const weekNumber = ({ currentNumberofWeek }) => {
-    return <div> {currentNumberofWeek} </div>;
+const WeekNumber = () => {
+  return (
+    <div>
+      <div>
+        <span>42</span>
+      </div>
+    </div>
+  );
 };
 
-export default weekNumber
+export default WeekNumber;

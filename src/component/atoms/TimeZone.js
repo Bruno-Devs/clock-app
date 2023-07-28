@@ -1,11 +1,9 @@
-import React from 'react'
-
 const TimeZone = ({currentTimeZone}) => {
   return (
-    <div className='flex flex-wrap w-20'>
+    <div>
       {currentTimeZone}
     </div>
   )
 }
 
-export default TimeZone
+export default TimeZone;
