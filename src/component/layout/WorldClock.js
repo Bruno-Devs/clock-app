@@ -5,17 +5,13 @@ import DropDownButton from "../atoms/DropDownButton";
 import TimeZone from "../atoms/TimeZone";
 import MoreDetails from "../organism/MoreDetails";
 
-const WorldClock = () => {
+const WorldClock = ({ show, toggleVisibility }) => {
   const [currentTimeZone, setCurrentTimeZone] = useState();
   const [currentTime, setCurrentTime] = useState();
   const [dayOfTheYear, setdayOfTheYear] = useState();
   const [dayOfTheWeek, setdayOfTheWeek] = useState();
   const [weekNumber, setWeekNumber] = useState();
-  const [visible, setVisible] = useState(false);
-
-  const toggleVisibility = () => {
-    setVisible(!visible);
-  };
+  
 
   useEffect(() => {
     const fetchWorldClock = async () => {
@@ -52,29 +48,29 @@ const WorldClock = () => {
     return `${offset}`;
   };
 
-  const visibleClass = visible ? "pt-0" : "pt-[14rem] md:pt-96 lg:pt-[233px]";
+  const visibleClass = show ? "pt-[96px]" : "pt-[14rem] md:pt-96 lg:pt-[183px]";
   return (
-    <div>
+    <div className="md:pt-[93px] lg:pt-[26px]">
       <div
         className={
-          "text-white transition-all pl-[2rem] w-full flex flex-col md:pl-[4rem]  " +
+          "text-white transition-all pl-[20px] w-full flex flex-col md:pl-[4rem] lg:pl-[165px] " +
           visibleClass
         }
       >
         <Greeting />
         <div className="flex flex-col md:pt-6">
           <div className="flex">
-            <div className="font-primaryFont text-[100px] font-bold leading-[100px] md:text-[175px]">
+            <div className="font-primaryFont text-[75px] font-bold leading-[100px] md:text-[175px] md:h-[125px] md:pt-4 tracking-[-4.37px]">
               {currentTime}
             </div>
-            <div className="self-end font-primaryFont font-light text-[15px] leading-[28px] uppercase pb-[10px] md:text-[36px] md:p-0">
+            <div className="self-end font-primaryFont font-light text-[13px] leading-[28px] uppercase pb-[10px] md:text-[32px] ">
               <TimeZone currentTimeZone={currentTimeZone} />
             </div>
           </div>
           <div className="lg:flex">
             <Location />
             <DropDownButton
-              visible={visible}
+              visible={show}
               onClick={toggleVisibility}
               currentDayofTheYear={dayOfTheYear}
               currentDayofTheweek={dayOfTheWeek}
@@ -83,7 +79,7 @@ const WorldClock = () => {
           </div>
         </div>
       </div>
-      <MoreDetails show={visible} currentTimeZone={currentTimeZone} />
+      <MoreDetails show={show} currentTimeZone={currentTimeZone} />
     </div>
   );
 };

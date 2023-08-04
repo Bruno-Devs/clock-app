@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <div className="bg-body bg-center bg-cover h-screen w-screen fixed">
-      <div className="bg-[rgba(0,0,0,0.33)] h-screen w-screen">
+      <div className="bg-[rgba(0,0,0,0.34)] h-screen w-screen">
         {showMoreDetails ? null : <Quotes />}
         <div className="w-full">
           <div>

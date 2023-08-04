@@ -1,6 +1,6 @@
 const DropDownButton = ({ visible, onClick }) => {
   return (
-    <div className="bg-white rounded-[28px] mt-9  h-[2.3rem] w-28 lg:mb-12 lg:ml-[727px]">
+    <div className="bg-white rounded-[28px] mt-16 md:mt-24  h-[2.3rem] w-28 lg:mt-[45px] lg:ml-[727px]">
       <button onClick={onClick} className="pl-1 pt-1 flex justify-between">
         <p className="font-primaryFont text-[16px] font-bold leading-[28px] uppercase text-[#000] pl-2  self-center">
           {visible ? "less" : "more"}

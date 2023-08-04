@@ -18,7 +18,7 @@ const Quotes = () => {
   }, []);
   return (
     <div>
-      <div className="text-white pl-[2rem] pt-[80px] w-[20rem] flex flex-row md:w-[33.7rem] md:pl-[4rem]">
+      <div className="text-white pl-[20px] pt-[80px]  flex flex-row md:text-[18px] md:w-[33.7rem] md:pl-[4rem] lg:pl-[10rem] lg:pt-[56px]">
         <div className=" flex flex-col flex-wrap">
           <Quote quote={quote} />
           <Author author={author} />
